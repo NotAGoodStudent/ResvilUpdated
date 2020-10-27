@@ -26,10 +26,18 @@ class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and().csrf().disable()
                 .authorizeRequests().antMatchers(HttpMethod.POST, "/login").permitAll()
-              .antMatchers(HttpMethod.GET, "/*").permitAll()
+                .antMatchers(HttpMethod.GET, "/*").permitAll()
+                .antMatchers(HttpMethod.GET, "/*/*").permitAll()
+                .antMatchers(HttpMethod.GET, "/*/*/*").permitAll()
                 .antMatchers(HttpMethod.POST, "/*").permitAll()
+                .antMatchers(HttpMethod.POST, "/*/*").permitAll()
+                .antMatchers(HttpMethod.POST, "/*/*/*").permitAll()
                 .antMatchers(HttpMethod.PUT, "/*").permitAll()
+                .antMatchers(HttpMethod.PUT, "/*/*").permitAll()
+                .antMatchers(HttpMethod.PUT, "/*/*/*").permitAll()
                 .antMatchers(HttpMethod.DELETE, "/*").permitAll()
+                .antMatchers(HttpMethod.DELETE, "/*/*").permitAll()
+                .antMatchers(HttpMethod.DELETE, "/*/*/*").permitAll()
                 .and().httpBasic();
     }
 
